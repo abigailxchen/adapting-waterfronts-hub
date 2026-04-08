@@ -1,4 +1,6 @@
-/* FONTS */
+/* ==============================
+   FONTS
+============================== */
 @font-face {
   font-family: 'Satoshi';
   src: url('fonts/Satoshi-Regular.otf') format('opentype'),
@@ -15,105 +17,197 @@
   font-style: normal;
 }
 
-/* GLOBAL STYLES */
+/* ==============================
+   GLOBAL STYLES
+============================== */
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: 'Satoshi', sans-serif;
   background: #f5f2eb;
   color: #111;
+  line-height: 1.6;
 }
 
-/* NAVBAR */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ==============================
+   NAVBAR
+============================== */
 .navbar {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 20px 40px;
+  justify-content: space-between;
+  padding: 15px 30px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-.logo {
+.nav-left, .nav-right {
   display: flex;
-  gap: 10px;
-  font-weight: bold;
+  gap: 25px;
+  align-items: center;
 }
 
-.logo-aw {
-  color: #f4b400;
+.logo-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
 }
 
-/* HERO */
+.logo-img {
+  height: 30px;
+}
+
+/* ==============================
+   HERO SECTION
+============================== */
 .hero {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  padding: 60px 40px;
-  gap: 60px;
+  padding: 80px 20px;
+  gap: 50px;
+  background: #f5f2eb;
 }
 
 .hero-image img {
-  max-width: 1000px;
   width: 100%;
+  max-width: 1000px; /* larger maximum width */
+  height: auto;
+  border-radius: 12px;
 }
 
 .hero-content {
   max-width: 400px;
+  text-align: left;
 }
 
 .hero-content h1 {
   font-size: 36px;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .hero-content p {
   color: #444;
   line-height: 1.5;
+  margin-bottom: 25px;
 }
 
-/* CTA */
+/* ==============================
+   CTA BUTTONS
+============================== */
 .cta-group {
   display: flex;
-  gap: 30px;
-  margin-top: 30px;
+  flex-wrap: wrap;
+  gap: 20px;
+  /* justify-content: center; */
 }
 
 .cta-label {
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   font-weight: 500;
 }
 
-/* BUTTONS */
 .btn {
   border: none;
-  padding: 12px 20px;
+  padding: 14px 24px;
   border-radius: 8px;
   font-weight: bold;
   cursor: pointer;
+  transition: all 0.2s ease;
+      font-family: 'Satoshi', sans-serif;
 }
 
 .btn.yellow {
   background: #f4b400;
+  color: #111;
+}
+
+.btn.yellow:hover {
+  background: #e2a300;
 }
 
 .btn.blue {
   background: #4a90e2;
-  color: white;
+  color: #fff;
 }
 
-/* INPUT SECTION */
+.btn.blue:hover {
+  background: #357ab7;
+}
+
+/* ==============================
+   SUGGESTION INPUT
+============================== */
 .suggestion {
   text-align: center;
-  margin-top: 60px;
+  margin: 80px 20px 40px;
 }
 
 .input-group {
-  margin-top: 15px;
   display: inline-flex;
   gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 input {
-  padding: 12px;
+  padding: 12px 15px;
   width: 250px;
   border-radius: 8px;
   border: 1px solid #ccc;
+  font-size: 16px;
+  font-family: 'Satoshi', sans-serif;
+}
+
+/* ==============================
+   RESPONSIVE
+============================== */
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+  }
+
+  .hero-image img {
+    max-width: 90%;
+  }
+
+  .hero-content {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .nav-left, .nav-right {
+    gap: 15px;
+    justify-content: center;
+  }
+
+  .logo-center {
+    justify-content: center;
+    flex: none;
+  }
+
+  .cta-group {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  input {
+    width: 90%;
+  }
 }
